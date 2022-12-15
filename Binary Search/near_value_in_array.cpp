@@ -1,5 +1,6 @@
 #include <vector>
 
+// a[i] <= a[i + 1] for all i in [0..a.size()-1)
 int search(const int val, const std::vector<int>& a) {
     int l = -1;
     int r = (int)a.size();
