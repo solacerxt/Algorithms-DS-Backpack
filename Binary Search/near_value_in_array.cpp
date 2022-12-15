@@ -1,5 +1,4 @@
 #include <vector>
-#include <cstdlib>
 
 int search(const int val, const std::vector<int>& a) {
     int l = -1;
