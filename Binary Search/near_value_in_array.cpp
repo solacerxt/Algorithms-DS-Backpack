@@ -15,5 +15,6 @@ int search(const int val, const std::vector<int>& a) {
         return a[r];
     if (r != a.size() && a[r] - val < val - a[l])
         return a[r];
+    
     return a[l];
 }
