@@ -1,19 +1,19 @@
 #include <vector>
 #include <functional>
 
-class SparseTable32 {
+class SparseTable {
 private:
     std::vector<std::vector<int>> table;
     std::function<int(int, int)> f;
 
     int log2_floor(int x) const;
 public:
-    SparseTable32(const std::vector<int>& a, std::function<int(int, int)> f);
+    SparseTable(const std::vector<int>& a, std::function<int(int, int)> f);
 
     int query(int l, int r) const;
 };
 
-SparseTable32::SparseTable32(const std::vector<int>& a, std::function<int(int, int)> f) {
+SparseTable::SparseTable(const std::vector<int>& a, std::function<int(int, int)> f) {
     this->f = f;
 
     int n = a.size();
@@ -34,9 +34,9 @@ SparseTable32::SparseTable32(const std::vector<int>& a, std::function<int(int, i
     }
 }
 
-int SparseTable32::log2_floor(int x) const { return 31 - __lzcnt(x); }
+int SparseTable::log2_floor(int x) const { return 31 - __lzcnt(x); }
 
-int SparseTable32::query(int l, int r) const {
+int SparseTable::query(int l, int r) const {
     int p = log2_floor(r - l + 1);
     return f(table[p][l], table[p][r + 1 - (1 << p)]);
 }
