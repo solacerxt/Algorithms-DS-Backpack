@@ -17,15 +17,15 @@ SparseTable32::SparseTable32(const std::vector<int>& a, std::function<int(int, i
     this->f = f;
 
     int n = a.size();
-    int log = log2_floor(n);
-    table = std::vector<std::vector<int>>(log + 1);
+    int log_n = log2_floor(n);
+    table = std::vector<std::vector<int>>(log_n + 1);
 
     table[0] = std::vector<int>(n);
     for (int i = 0; i < n; ++i) {
         table[0][i] = a[i];
     }
 
-    for (int i = 1; i <= log; ++i) {
+    for (int i = 1; i <= log_n; ++i) {
         int len = n + 1 - (1 << i);
         table[i] = std::vector<int>(len);
         for (int j = 0; j < len; ++j) {
