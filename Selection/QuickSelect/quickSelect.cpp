@@ -29,9 +29,11 @@ int quickSelect(std::vector<int>& a, int k, int start = 0, int end = -1) {
     if (end - start == 1) {
         return a[start];
     }
+    
     int x = a[rng() % (end - start) + start];
     int l, r;
     partition(a, x, start, end, l, r);
+    
     if (k <= l) {
         return quickSelect(a, k, start, l);
     }
