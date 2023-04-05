@@ -4,21 +4,19 @@
 
 void partition(std::vector<int>& a, int x, int st, int end, int& l, int& r) {
     l = st;
-    int i = l;
-    while (i < end) {
+    for (int i = l; i < end; ++i) {
         while (i >= l && a[i] < x) {
             std::swap(a[i], a[l]);
             ++l;
         }
-        ++i;
     }
-    i = r = l;
-    while (i < end) {
+
+    r = l;
+    for (int i = r; i < end; ++i) {
         while (i >= r && a[i] == x) {
             std::swap(a[i], a[r]);
             ++r;
         }
-        ++i;
     }
 }
 
