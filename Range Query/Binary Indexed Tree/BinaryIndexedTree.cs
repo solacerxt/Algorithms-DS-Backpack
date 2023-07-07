@@ -1,4 +1,4 @@
-class BinaryIndexedTree
+public class BinaryIndexedTree
 {
     private readonly int _length;
     private readonly int[] _array;
