@@ -13,6 +13,18 @@ public class BinaryHeap<TElement, TKey> where TKey : notnull, IComparable<TKey>
         _comparer = Comparer<TKey>.Default;
     }
 
+    public BinaryHeap(IComparer<TKey> comparer)
+    {
+        _nodes = new();
+        _comparer = comparer;
+    }
+
+    public BinaryHeap(Comparison<TKey> comparison)
+    {
+        _nodes = new();
+        _comparer = Comparer<TKey>.Create(comparison);
+    }
+
     public BinaryHeap(int capacity)
     {
         _nodes = new(capacity);
