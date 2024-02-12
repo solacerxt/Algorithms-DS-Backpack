@@ -23,7 +23,7 @@ public:
     }
 
     int Sum(int l, int r) {
-        return Sum(r) - Sum(l - 1);
+        return Sum(r) - Sum(l);
     }
 
     void Increase(int i, int value) {
